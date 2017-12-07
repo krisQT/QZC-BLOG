@@ -1,0 +1,12 @@
+[{
+    "name": "qzc'blog",
+    "script": "server/start.js",
+    "error_file": "server/logs/app-err.log",
+    "out_file": "server/logs/app-out.log",
+    "env_dev": {
+        "NODE_ENV": "development"
+    },
+    "env_production": {
+        "NODE_ENV": "production"
+    }
+}]

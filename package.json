@@ -1,0 +1,60 @@
+{
+  "name": "qzc'blog",
+  "version": "1.0.0",
+  "description": "qinzhichao'blog",
+  "main": "no",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node server/start.js",
+    "dev": "nodemon server/start.js",
+    "prod": "npm run build && npm start",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "rimraf ./client/dist && cross-env NODE_ENV=production webpack --config ./client/build/webpack.client.config.js --colors --profile --display-modules --progress",
+    "build:server": "cross-env NODE_ENV=production webpack --config ./client/build/webpack.server.config.js --colors --profile --display-modules --progress",
+    "analyze": "rimraf ./client/dist && cross-env NODE_ENV=production webpack --config ./client/build/webpack.client.config.js --json > stats.json && webpack-bundle-analyzer stats.json -p 1111",
+    "pm2": "npm run build && pm2 start pm2.json --env production"
+  },
+  "dependencies" : {
+    "axios": "^0.16.0",
+    "element-ui": "^1.2.7",
+    "fastclick": "^1.0.6",
+    "font-awesome": "^4.7.0",
+    "highlight.js": "^9.10.0",
+    "import-dir": "^0.0.1",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "1",
+    "koa-compress": "^2.0.0",
+    "koa-connect-history-api-fallback": "^0.3.1",
+    "koa-convert": "^1.2.0",
+    "koa-logger": "^2.0.1",
+    "koa-onerror": "^3.1.0",
+    "koa-router": "^7.1.1",
+    "koa-static": "^3.0.0",
+    "lru-cache": "^4.0.2",
+    "marked": "^0.3.6",
+    "md5": "^2.2.1",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.3",
+    "simplemde": "^1.11.2",
+    "vue": "^2.3.0",
+    "vue-router": "^2.5.2",
+    "vue-server-renderer": "^2.3.0",
+    "vuex": "^2.3.1",
+    "vuex-router-sync": "^4.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/individualistloner/QZC-BLOG.git"
+  },
+  "keywords": [
+    "bog",
+    "前端",
+    "js",
+    "python"
+  ],
+  "author": "qzc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/individualistloner/QZC-BLOG/issues"
+  },
+  "homepage": "https://github.com/individualistloner/QZC-BLOG#readme"
+}
